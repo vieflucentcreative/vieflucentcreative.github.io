@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografis Arus Kas - Vief Lucent Creative</title>
+    <title>VIEF LUCENT CREATIVE - Infografis Arus Perolehan dan Performa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +34,7 @@
                         'vlc-primary': '#3E92CC',
                         'vlc-gray': '#D8D8D8',
                         'vlc-light': '#EAF2FA',
+                        'vlc-accent': '#7EBCE8',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -46,7 +47,7 @@
 <body class="bg-vlc-light font-sans text-vlc-dark">
 
     <header class="bg-vlc-dark text-white py-8 text-center shadow-lg">
-        <h1 class="text-3xl md:text-4xl font-bold">Laporan Arus Kas</h1>
+        <h1 class="text-3xl md:text-4xl font-bold">Laporan Keuangan & Performa</h1>
         <h2 class="text-2xl md:text-3xl font-semibold text-vlc-primary">VIEF LUCENT CREATIVE</h2>
         <p class="mt-2 text-lg text-vlc-gray">Periode: 24 Oktober - 5 November 2025</p>
     </header>
@@ -54,7 +55,7 @@
     <main class="max-w-7xl mx-auto p-4 md:p-8">
 
         <section id="ringkasan" class="mb-8">
-            <h3 class="text-2xl font-bold text-vlc-dark mb-4">Ringkasan Keuangan</h3>
+            <h3 class="text-2xl font-bold text-vlc-dark mb-4">Ringkasan Keuangan (Arus Kas)</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
                 <div class="bg-white rounded-lg shadow-md p-6 text-center">
@@ -63,7 +64,7 @@
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <h4 class="text-lg font-semibold text-green-600 mb-2">Total Pendapatan</h4>
+                    <h4 class="text-lg font-semibold text-green-600 mb-2">Total Pendapatan (Cair)</h4>
                     <p class="text-3xl font-bold">Rp 3.214.064</p>
                 </div>
                 
@@ -79,6 +80,58 @@
                 </div>
             </div>
         </section>
+        
+        <section id="analisis-pencairan-dana" class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Analisis Arus Kas Masuk (Pencairan Dana)</h3>
+                <p class="text-gray-600 mb-4">
+                    Data ini menunjukkan uang tunai yang *sudah dicairkan* ke rekening. Pencairan dari TikTok menjadi kontributor terbesar, menyumbang lebih dari 66% dari total dana yang masuk.
+                </p>
+                <div class="chart-container">
+                    <canvas id="revenueDonutChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Tren Pencairan Dana Harian</h3>
+                <p class="text-gray-600 mb-4">
+                    Grafik ini menunjukkan aliran dana yang masuk ke rekening per hari. Terlihat adanya puncak pencairan dana yang signifikan pada tanggal 3 November.
+                </p>
+                <div class="chart-container">
+                    <canvas id="revenueLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-vlc-gray my-12">
+
+        <section id="analisis-diamond-tiktok" class="my-8">
+            <h3 class="text-3xl font-bold text-vlc-dark mb-6 text-center">Analisis Perolehan Diamond TikTok</h3>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Data berikut menganalisis total **28.781 Diamond** yang diperoleh dari 24 Oktober - 5 November 2025, dibagi berdasarkan sesi waktu live streaming untuk melihat jam paling produktif.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-2xl font-bold text-vlc-dark mb-4">Komposisi Diamond per Sesi</h4>
+                    <p class="text-gray-600 mb-4">
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="diamondSessionChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-2xl font-bold text-vlc-dark mb-4">Tren Perolehan Diamond Harian</h4>
+                    <p class="text-gray-600 mb-4">
+                        Puncak perolehan tertinggi terjadi pada 2 November (7.131 diamond). Setelah 4 November, terlihat adanya normalisasi dan penurunan perolehan harian, yang puncaknya di tanggal 5 November.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="diamondTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-vlc-gray my-12">
 
         <section id="alur-dana" class="bg-white rounded-lg shadow-md p-6 my-8">
             <h3 class="text-2xl font-bold text-vlc-dark mb-6 text-center">Alur Dana Perusahaan</h3>
@@ -112,28 +165,6 @@
             </div>
         </section>
 
-        <section id="analisis-pendapatan" class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Komposisi Pendapatan</h3>
-                <p class="text-gray-600 mb-4">
-                    Pendapatan perusahaan berasal dari dua sumber utama. Pencairan dari TikTok menjadi kontributor terbesar, menyumbang lebih dari 66% dari total pendapatan selama periode ini.
-                </p>
-                <div class="chart-container">
-                    <canvas id="revenueDonutChart"></canvas>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Tren Pendapatan Harian</h3>
-                <p class="text-gray-600 mb-4">
-                    Grafik ini menunjukkan aliran pendapatan harian. Terlihat adanya puncak pendapatan yang signifikan pada tanggal 3 November, yang sebagian besar berasal dari pencairan dana TikTok.
-                </p>
-                <div class="chart-container">
-                    <canvas id="revenueLineChart"></canvas>
-                </div>
-            </div>
-        </section>
-
         <section id="analisis-pengeluaran" class="bg-white rounded-lg shadow-md p-6 my-8">
             <h3 class="text-2xl font-bold text-vlc-dark mb-4">Analisis Kategori Pengeluaran</h3>
             <p class="text-gray-600 mb-4 max-w-3xl mx-auto text-center">
@@ -144,9 +175,84 @@
             </div>
         </section>
 
+        <section id="rincian-diamond" class="bg-white rounded-lg shadow-md p-6 my-8">
+            <h3 class="text-2xl font-bold text-vlc-dark mb-4">💎 Rincian Perolehan Diamond TikTok</h3>
+            <div class="overflow-x-auto max-h-96">
+                <table class="w-full text-left divide-y divide-vlc-gray">
+                    <thead class="bg-vlc-light sticky top-0">
+                        <tr>
+                            <th class="py-3 px-4 font-semibold">Tanggal</th>
+                            <th class="py-3 px-4 font-semibold">Waktu (Jam)</th>
+                            <th class="py-3 px-4 font-semibold">Sesi</th>
+                            <th class="py-3 px-4 font-semibold text-right">Perolehan (Berlian)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <!-- 25 Okt -->
+                        <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">13:34 - 13:34</td><td class="py-2 px-4">Sesi 2 (Dini hari/Pagi)</td><td class="py-2 px-4 text-right">0</td></tr>
+                        <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">15:21 - 18:37</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">392</td></tr>
+                        <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">20:08 - 20:10</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">0</td></tr>
+                        <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">20:12 - 20:28</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">30</td></tr>
+                        <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">20:41 - 00:00</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">689</td></tr>
+                        <!-- 26 Okt -->
+                        <tr><td class="py-2 px-4">26 Okt</td><td class="py-2 px-4">15:52 - 18:52</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">1.000</td></tr>
+                        <tr><td class="py-2 px-4">26 Okt</td><td class="py-2 px-4">20:21 - 23:25</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">204</td></tr>
+                        <!-- 27 Okt -->
+                        <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">14:29 - 17:42</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">153</td></tr>
+                        <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">18:54 - 19:19</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">3</td></tr>
+                        <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">19:34 - 22:53</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">434</td></tr>
+                        <!-- 28 Okt -->
+                        <tr><td class="py-2 px-4">28 Okt</td><td class="py-2 px-4">16:10 - 19:12</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">1.800</td></tr>
+                        <tr><td class="py-2 px-4">28 Okt</td><td class="py-2 px-4">19:42 - 20:13</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">2</td></tr>
+                        <tr><td class="py-2 px-4">28 Okt</td><td class="py-2 px-4">21:01 - 00:10</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">445</td></tr>
+                        <!-- 29 Okt -->
+                        <tr><td class="py-2 px-4">29 Okt</td><td class="py-2 px-4">18:06 - 21:07</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">1.000</td></tr>
+                        <tr><td class="py-2 px-4">29 Okt</td><td class="py-2 px-4">22:30 - 00:40</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">68</td></tr>
+                        <!-- 30 Okt -->
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">00:40 - 02:05</td><td class="py-2 px-4">Sesi 2 (Dini hari)</td><td class="py-2 px-4 text-right">98</td></tr>
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">14:03 - 15:40</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">234</td></tr>
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">15:40 - 17:24</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">316</td></tr>
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">17:56 - 18:41</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">114</td></tr>
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">19:06 - 20:46</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">403</td></tr>
+                        <tr><td class="py-2 px-4">30 Okt</td><td class="py-2 px-4">20:48 - 23:03</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">71</td></tr>
+                        <!-- 31 Okt -->
+                        <tr><td class="py-2 px-4">31 Okt</td><td class="py-2 px-4">14:04 - 17:18</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">1.300</td></tr>
+                        <tr><td class="py-2 px-4">31 Okt</td><td class="py-2 px-4">18:07 - 18:52</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">1</td></tr>
+                        <tr><td class="py-2 px-4">31 Okt</td><td class="py-2 px-4">19:10 - 21:12</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">683</td></tr>
+                        <tr><td class="py-2 px-4">31 Okt</td><td class="py-2 px-4">21:13 - 22:51</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">16</td></tr>
+                        <!-- 1 Nov -->
+                        <tr><td class="py-2 px-4">01 Nov</td><td class="py-2 px-4">14:58 - 18:05</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">1.200</td></tr>
+                        <tr><td class="py-2 px-4">01 Nov</td><td class="py-2 px-4">20:00 - 23:22</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">2.600</td></tr>
+                        <!-- 2 Nov -->
+                        <tr><td class="py-2 px-4">02 Nov</td><td class="py-2 px-4">14:05 - 17:05</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">192</td></tr>
+                        <tr><td class="py-2 px-4">02 Nov</td><td class="py-2 px-4">18:06 - 18:53</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">3.000</td></tr>
+                        <tr><td class="py-2 px-4">02 Nov</td><td class="py-2 px-4">19:03 - 20:41</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">639</td></tr>
+                        <tr><td class="py-2 px-4">02 Nov</td><td class="py-2 px-4">20:44 - 22:35</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">3.300</td></tr>
+                        <!-- 3 Nov -->
+                        <tr><td class="py-2 px-4">03 Nov</td><td class="py-2 px-4">14:03 - 16:01</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">2.500</td></tr>
+                        <tr><td class="py-2 px-4">03 Nov</td><td class="py-2 px-4">16:06 - 17:15</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">611</td></tr>
+                        <tr><td class="py-2 px-4">03 Nov</td><td class="py-2 px-4">18:11 - 19:01</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">1.000</td></tr>
+                        <tr><td class="py-2 px-4">03 Nov</td><td class="py-2 px-4">19:07 - 20:17</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">1</td></tr>
+                        <tr><td class="py-2 px-4">03 Nov</td><td class="py-2 px-4">20:22 - 22:22</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">882</td></tr>
+                        <!-- 4 Nov -->
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">14:02 - 15:07</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">714</td></tr>
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">15:12 - 17:12</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">300</td></tr>
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">18:10 - 18:16</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">1</td></tr>
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">18:19 - 18:59</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">162</td></tr>
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">19:09 - 20:45</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">243</td></tr>
+                        <tr><td class="py-2 px-4">04 Nov</td><td class="py-2 px-4">20:50 - 22:45</td><td class="py-2 px-4">Sesi 2</td><td class="py-2 px-4 text-right">1.400</td></tr>
+                        <!-- 5 Nov -->
+                        <tr><td class="py-2 px-4">05 Nov</td><td class="py-2 px-4">14:01 - 16:05</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">363</td></tr>
+                        <tr><td class="py-2 px-4">05 Nov</td><td class="py-2 px-4">16:10 - 17:47</td><td class="py-2 px-4">Sesi 1</td><td class="py-2 px-4 text-right">142</td></tr>
+                        <tr><td class="py-2 px-4">05 Nov</td><td class="py-2 px-4">18:13 - 19:15</td><td class="py-2 px-4">Sesi Istirahat</td><td class="py-2 px-4 text-right">75</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
         <section id="rincian-transaksi" class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
             <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-2xl font-bold text-vlc-dark mb-4">📈 Rincian Pendapatan</h3>
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">📈 Rincian Pendapatan (Pencairan)</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left divide-y divide-vlc-gray">
                         <thead class="bg-vlc-light">
@@ -202,7 +308,7 @@
     </main>
 
     <footer class="text-center py-8 text-vlc-gray bg-vlc-dark mt-8">
-        <p>&copy; 2025 VIEF LUCENT CREATIVE.</p>
+        <p>&copy; 2025 VIEF LUCENT CREATIVE. Infografis dibuat secara otomatis.</p>
     </footer>
 
     <script>
@@ -215,6 +321,10 @@
                 currency: 'IDR',
                 minimumFractionDigits: 0
             }).format(value);
+        };
+        
+        const formatDiamond = (value) => {
+             return new Intl.NumberFormat('id-ID').format(value) + ' Diamond';
         };
 
         const processLabel = (label, maxLength = 16) => {
@@ -308,7 +418,7 @@
                 data: {
                     labels: ['25 Okt', '27 Okt', '28 Okt', '02 Nov', '03 Nov', '05 Nov'],
                     datasets: [{
-                        label: 'Pendapatan Harian',
+                        label: 'Pendapatan Harian (Cair)',
                         data: [112380, 485450, 220383, 667522, 1143129, 585200],
                         fill: true,
                         backgroundColor: 'rgba(62, 146, 204, 0.2)',
@@ -402,10 +512,112 @@
             });
         };
 
+        const renderDiamondSessionChart = () => {
+            const ctx = document.getElementById('diamondSessionChart').getContext('2d');
+            const diamondData = {
+                sesi1: 11331,
+                istirahat: 5242,
+                sesi2: 12208
+            };
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        processLabel('Sesi 2 (19.00 - 13.59)'), 
+                        processLabel('Sesi 1 (14.00 - 17.59)'),
+                        processLabel('Sesi Istirahat (18.00 - 18.59)')
+                    ],
+                    datasets: [{
+                        label: 'Perolehan Diamond',
+                        data: [diamondData.sesi2, diamondData.sesi1, diamondData.istirahat],
+                        backgroundColor: [
+                            '#0A2463',
+                            '#3E92CC',
+                            '#7EBCE8',
+                        ],
+                        borderColor: '#EAF2FA',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += formatDiamond(context.raw);
+                                    
+                                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    label += ` (${percentage}%)`;
+                                    
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        const renderDiamondTrendChart = () => {
+            const ctx = document.getElementById('diamondTrendChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['25 Okt', '26 Okt', '27 Okt', '28 Okt', '29 Okt', '30 Okt', '31 Okt', '1 Nov', '2 Nov', '3 Nov', '4 Nov', '5 Nov'],
+                    datasets: [{
+                        label: 'Total Diamond Harian',
+                        data: [1111, 1204, 590, 2247, 1068, 1236, 2000, 3800, 7131, 4994, 2820, 580],
+                        fill: true,
+                        backgroundColor: 'rgba(126, 188, 232, 0.2)',
+                        borderColor: '#7EBCE8',
+                        tension: 0.1,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#7EBCE8'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: (value) => new Intl.NumberFormat('id-ID').format(value)
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => formatDiamond(context.raw)
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             renderRevenueDonutChart();
             renderRevenueLineChart();
             renderExpenseBarChart();
+            renderDiamondSessionChart();
+            renderDiamondTrendChart();
         });
     </script>
 </body>
