@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis Arus Kas - Vief Lucent Creative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'vlc-dark': '#0A2463',
+                        'vlc-primary': '#3E92CC',
+                        'vlc-gray': '#D8D8D8',
+                        'vlc-light': '#EAF2FA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-vlc-light font-sans text-vlc-dark">
+
+    <header class="bg-vlc-dark text-white py-8 text-center shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold">Laporan Arus Kas</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-vlc-primary">VIEF LUCENT CREATIVE</h2>
+        <p class="mt-2 text-lg text-vlc-gray">Periode: 24 Oktober - 5 November 2025</p>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <section id="ringkasan" class="mb-8">
+            <h3 class="text-2xl font-bold text-vlc-dark mb-4">Ringkasan Keuangan</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h4 class="text-lg font-semibold text-vlc-primary mb-2">Saldo Akhir</h4>
+                    <p class="text-4xl font-bold text-vlc-dark">Rp 2.169.944</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h4 class="text-lg font-semibold text-green-600 mb-2">Total Pendapatan</h4>
+                    <p class="text-3xl font-bold">Rp 3.214.064</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h4 class="text-lg font-semibold text-red-600 mb-2">Total Pengeluaran</h4>
+                    <p class="text-3xl font-bold">Rp 1.183.333</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <h4 class="text-lg font-semibold text-vlc-dark mb-2">Arus Kas Bersih</h4>
+                    <p class="text-3xl font-bold">Rp 2.030.731</p>
+                    <p class="text-sm text-gray-500">(Pendapatan - Pengeluaran)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="alur-dana" class="bg-white rounded-lg shadow-md p-6 my-8">
+            <h3 class="text-2xl font-bold text-vlc-dark mb-6 text-center">Alur Dana Perusahaan</h3>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+                Infografis ini menunjukkan bagaimana saldo awal perusahaan berubah selama periode laporan. Arus kas bersih yang positif sebesar Rp 2.030.731 berkontribusi pada peningkatan saldo akhir.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="border-2 border-vlc-dark rounded-lg p-4 text-center w-48">
+                    <h5 class="font-semibold">Saldo Awal</h5>
+                    <p class="text-lg font-bold">Rp 139.213</p>
+                </div>
+                
+                <span class="text-4xl font-bold text-vlc-primary hidden md:block">+</span>
+                <span class="text-4xl font-bold text-vlc-primary block md:hidden">↓</span>
+
+                <div class="border-2 border-dashed border-vlc-primary rounded-lg p-4 text-center w-72">
+                    <h5 class="font-semibold">Arus Kas Periode Ini</h5>
+                    <p class="text-lg font-bold text-green-600">+ Rp 3.214.064</p>
+                    <p class="text-lg font-bold text-red-600">- Rp 1.183.333</p>
+                    <hr class="my-1">
+                    <p class="text-lg font-bold text-vlc-dark">= Rp 2.030.731</p>
+                </div>
+
+                <span class="text-4xl font-bold text-vlc-primary hidden md:block">=</span>
+                <span class="text-4xl font-bold text-vlc-primary block md:hidden">↓</span>
+
+                <div class="border-2 border-vlc-dark bg-vlc-dark text-white rounded-lg p-4 text-center w-48">
+                    <h5 class="font-semibold">Saldo Akhir</h5>
+                    <p class="text-lg font-bold">Rp 2.169.944</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="analisis-pendapatan" class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Komposisi Pendapatan</h3>
+                <p class="text-gray-600 mb-4">
+                    Pendapatan perusahaan berasal dari dua sumber utama. Pencairan dari TikTok menjadi kontributor terbesar, menyumbang lebih dari 66% dari total pendapatan selama periode ini.
+                </p>
+                <div class="chart-container">
+                    <canvas id="revenueDonutChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">Tren Pendapatan Harian</h3>
+                <p class="text-gray-600 mb-4">
+                    Grafik ini menunjukkan aliran pendapatan harian. Terlihat adanya puncak pendapatan yang signifikan pada tanggal 3 November, yang sebagian besar berasal dari pencairan dana TikTok.
+                </p>
+                <div class="chart-container">
+                    <canvas id="revenueLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="analisis-pengeluaran" class="bg-white rounded-lg shadow-md p-6 my-8">
+            <h3 class="text-2xl font-bold text-vlc-dark mb-4">Analisis Kategori Pengeluaran</h3>
+            <p class="text-gray-600 mb-4 max-w-3xl mx-auto text-center">
+                Pengeluaran terbesar perusahaan dialokasikan untuk "Kebutuhan Host & Talent", yang mencakup biaya makan dan uang harian. Kategori ini menghabiskan lebih dari setengah total pengeluaran, menunjukkan fokus operasional pada manajemen talent.
+            </p>
+            <div class="chart-container max-w-2xl">
+                <canvas id="expenseBarChart"></canvas>
+            </div>
+        </section>
+
+        <section id="rincian-transaksi" class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">📈 Rincian Pendapatan</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left divide-y divide-vlc-gray">
+                        <thead class="bg-vlc-light">
+                            <tr>
+                                <th class="py-3 px-4 font-semibold">Tanggal</th>
+                                <th class="py-3 px-4 font-semibold">Sumber</th>
+                                <th class="py-3 px-4 font-semibold text-right">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr><td class="py-2 px-4">25 Okt 2025</td><td class="py-2 px-4">Pencairan TikTok</td><td class="py-2 px-4 text-right text-green-600">+Rp 112.380</td></tr>
+                            <tr><td class="py-2 px-4">27 Okt 2025</td><td class="py-2 px-4">Withdraw Saweria</td><td class="py-2 px-4 text-right text-green-600">+Rp 485.450</td></tr>
+                            <tr><td class="py-2 px-4">28 Okt 2025</td><td class="py-2 px-4">Pencairan TikTok</td><td class="py-2 px-4 text-right text-green-600">+Rp 220.383</td></tr>
+                            <tr><td class="py-2 px-4">02 Nov 2025</td><td class="py-2 px-4">Pencairan TikTok</td><td class="py-2 px-4 text-right text-green-600">+Rp 667.522</td></tr>
+                            <tr><td class="py-2 px-4">03 Nov 2025</td><td class="py-2 px-4">Pencairan TikTok</td><td class="py-2 px-4 text-right text-green-600">+Rp 1.143.129</td></tr>
+                            <tr><td class="py-2 px-4">05 Nov 2025</td><td class="py-2 px-4">Withdraw Saweria</td><td class="py-2 px-4 text-right text-green-600">+Rp 585.200</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold text-vlc-dark mb-4">📉 Rincian Pengeluaran</h3>
+                <div class="overflow-x-auto max-h-96">
+                    <table class="w-full text-left divide-y divide-vlc-gray">
+                        <thead class="bg-vlc-light sticky top-0">
+                            <tr>
+                                <th class="py-3 px-4 font-semibold">Tanggal</th>
+                                <th class="py-3 px-4 font-semibold">Keterangan</th>
+                                <th class="py-3 px-4 font-semibold text-right">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr><td class="py-2 px-4">24-26 Okt</td><td class="py-2 px-4">Makan host (3x)</td><td class="py-2 px-4 text-right text-red-600">-Rp 90.000</td></tr>
+                            <tr><td class="py-2 px-4">25 Okt</td><td class="py-2 px-4">Gaji Ernita (1 hari)</td><td class="py-2 px-4 text-right text-red-600">-Rp 133.333</td></tr>
+                            <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">Listrik Studio</td><td class="py-2 px-4 text-right text-red-600">-Rp 100.000</td></tr>
+                            <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">Makan host</td><td class="py-2 px-4 text-right text-red-600">-Rp 30.000</td></tr>
+                            <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">Komisi Saweria</td><td class="py-2 px-4 text-right text-red-600">-Rp 100.000</td></tr>
+                            <tr><td class="py-2 px-4">27 Okt</td><td class="py-2 px-4">Fee Penarikan Saweria</td><td class="py-2 px-4 text-right text-red-600">-Rp 30.000</td></tr>
+                            <tr><td class="py-2 px-4">28-29 Okt</td><td class="py-2 px-4">Makan host</td><td class="py-2 px-4 text-right text-red-600">-Rp 60.000</td></tr>
+                            <tr><td class="py-2 px-4">30 Okt-3 Nov</td><td class="py-2 px-4">Makan & Harian Koyy</td><td class="py-2 px-4 text-right text-red-600">-Rp 350.000</td></tr>
+                            <tr><td class="py-2 px-4">4 Nov</td><td class="py-2 px-4">Listrik</td><td class="py-2 px-4 text-right text-red-600">-Rp 150.000</td></tr>
+                            <tr><td class="py-2 px-4">4 Nov</td><td class="py-2 px-4">Makan host</td><td class="py-2 px-4 text-right text-red-600">-Rp 30.000</td></tr>
+                            <tr><td class="py-2 px-4">4 Nov</td><td class="py-2 px-4">Harian Koy</td><td class="py-2 px-4 text-right text-red-600">-Rp 40.000</td></tr>
+                            <tr><td class="py-2 px-4">5 Nov</td><td class="py-2 px-4">Makan host</td><td class="py-2 px-4 text-right text-red-600">-Rp 30.000</td></tr>
+                            <tr><td class="py-2 px-4">5 Nov</td><td class="py-2 px-4">Harian Koy</td><td class="py-2 px-4 text-right text-red-600">-Rp 40.000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-vlc-gray bg-vlc-dark mt-8">
+        <p>&copy; 2025 VIEF LUCENT CREATIVE.</p>
+    </footer>
+
+    <script>
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.color = '#0A2463';
+
+        const formatRupiah = (value) => {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(value);
+        };
+
+        const processLabel = (label, maxLength = 16) => {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length + 1 > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine += ' ' + word;
+                }
+            }
+            lines.push(currentLine.trim());
+            return lines.map(l => l.trim()).filter(l => l.length > 0);
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const renderRevenueDonutChart = () => {
+            const ctx = document.getElementById('revenueDonutChart').getContext('2d');
+            const revenueData = {
+                tiktok: 112380 + 220383 + 667522 + 1143129,
+                saweria: 485450 + 585200
+            };
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        processLabel('Pencairan TikTok'), 
+                        processLabel('Withdraw Saweria')
+                    ],
+                    datasets: [{
+                        label: 'Pendapatan',
+                        data: [revenueData.tiktok, revenueData.saweria],
+                        backgroundColor: [
+                            '#0A2463',
+                            '#3E92CC',
+                        ],
+                        borderColor: '#EAF2FA',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += formatRupiah(context.raw);
+                                    
+                                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    label += ` (${percentage}%)`;
+                                    
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        const renderRevenueLineChart = () => {
+            const ctx = document.getElementById('revenueLineChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['25 Okt', '27 Okt', '28 Okt', '02 Nov', '03 Nov', '05 Nov'],
+                    datasets: [{
+                        label: 'Pendapatan Harian',
+                        data: [112380, 485450, 220383, 667522, 1143129, 585200],
+                        fill: true,
+                        backgroundColor: 'rgba(62, 146, 204, 0.2)',
+                        borderColor: '#3E92CC',
+                        tension: 0.1,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#3E92CC'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: (value) => formatRupiah(value)
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => formatRupiah(context.raw)
+                            }
+                        }
+                    }
+                }
+            });
+        };
+        
+        const renderExpenseBarChart = () => {
+            const ctx = document.getElementById('expenseBarChart').getContext('2d');
+            const expenseData = {
+                talent: 90000 + 30000 + 60000 + 350000 + 30000 + 40000 + 30000 + 40000,
+                gaji: 133333,
+                operasional: 100000 + 150000,
+                platform: 100000 + 30000
+            };
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        processLabel('Kebutuhan Host & Talent'), 
+                        processLabel('Gaji & SDM'), 
+                        processLabel('Operasional & Utilitas'), 
+                        processLabel('Biaya Platform')
+                    ],
+                    datasets: [{
+                        label: 'Total Pengeluaran',
+                        data: [
+                            expenseData.talent, 
+                            expenseData.gaji, 
+                            expenseData.operasional, 
+                            expenseData.platform
+                        ],
+                        backgroundColor: [
+                            '#0A2463',
+                            '#3E92CC',
+                            '#7EBCE8',
+                            '#B6D6F2',
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            ticks: {
+                                callback: (value) => formatRupiah(value)
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: (context) => formatRupiah(context.raw)
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRevenueDonutChart();
+            renderRevenueLineChart();
+            renderExpenseBarChart();
+        });
+    </script>
+</body>
+</html>
